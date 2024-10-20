@@ -1,0 +1,17 @@
+services:
+      databasedeploy:
+            build: .
+            ports:
+              - '3306:3306'
+            container_name: database-deploy
+            environment:
+                MYSQL_DATABASE: studentapp
+                MYSQL_USER: admin
+                MYSQL_PASSWORD: 1234
+                MYSQL_ROOT_PASSWORD: 1234
+            volumes:
+              - myapp:/var/lib/mysql
+            network_mode:
+                bridge
+volumes:
+ myapp:

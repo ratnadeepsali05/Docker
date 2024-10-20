@@ -1,0 +1,37 @@
+services:
+    boxer:
+     build: .
+     ports:
+       - '80:80'
+     container_name: boxer123
+     volumes: 
+       - myapps:/var/www/html/
+     network_mode:
+          bridge       
+  
+    counter:
+       build: ./counter/
+       ports:
+         - '81:80'
+       container_name: counter123
+       volumes: 
+        - myapps2:/var/www/html/
+       network_mode:
+          bridge
+
+    mario:
+       build: ./supermario-game/
+       ports:
+         - '82:80'
+       container_name: mario123
+       volumes: 
+        - myapps3:/var/www/html/
+       network_mode:
+          bridge
+
+
+volumes: 
+    myapps:         
+    myapps2:
+    myapps3:      
+
